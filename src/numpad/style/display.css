@@ -1,0 +1,44 @@
+.display-container {
+  background-color: black;
+  height: 10.3rem;
+  width: 100%;
+
+  color: white;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 5rem;
+  overflow-x: auto;
+
+  box-sizing: border-box;
+
+  padding: 5%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+
+
+  scrollbar-color: white;
+  scrollbar-width: 100px;
+}
+
+.display-container::-webkit-scrollbar {
+  margin: 0px;
+  padding: 0px;
+  background: black;
+}
+
+.display-container::-webkit-scrollbar-button {
+  background: rgb(49, 49, 49);
+}
+
+.display-container::-webkit-scrollbar-button:hover {
+  background: rgb(73, 73, 73);
+}
+
+.display-container::-webkit-scrollbar-thumb {
+  background-color: rgb(49, 49, 49);
+}
+
+.display-container::-webkit-scrollbar-thumb:hover {
+  background: rgb(73, 73, 73);
+}
