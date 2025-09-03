@@ -6,17 +6,45 @@ import './numpad/style/app.css'
 
 function App() {
 
-  const [displayValue, setValue] = useState('');
-  const opRegex = /[+\-*/.]/;
+  let [displayValue, setValue] = useState('');
 
   const handleKeyPress = (input) => {
 
     setValue(display => {
-      let lastChar = display.charAt(display.length - 1)
-      if (opRegex.test(lastChar) && (opRegex.test(input))) {
-        return display;
+      let lastChar = display.toString().slice(-1)
+      const opRegex = /[+\-*/]/;
+
+
+      if (opRegex.test(input) && display.length < 1) {
+        return "";
       }
-      return display += input;
+
+
+      if (input === '=' && !opRegex.test(lastChar)) {
+        try {
+
+          return eval(display) ?? "";
+
+        } catch (err) {
+          //rot 13
+          console.error("Incorrect Syntax [Error Code: EUIgLzSmplRu]")
+          return;
+        }
+      }
+
+      // if char is 'C' we just return empty ""
+      if (input === 'C') {
+        return "";
+      }
+
+      // if the last char is another operator and our input is also an operator
+      // then we just go and use current display
+      if (opRegex.test(lastChar) && (opRegex.test(input))) {
+
+        return display = display.slice(0, -1) + input;
+      }
+
+      return display + input;
     })
   }
 
@@ -29,9 +57,9 @@ function App() {
           </div>
           <div className="num-key-container">
             <Keys input={'+'} groupName="key-container operator" onClick={handleKeyPress}></Keys>
-            <Keys input={'1'} groupName="key-container" onClick={handleKeyPress}></Keys>
-            <Keys input={'2'} groupName="key-container " onClick={handleKeyPress}></Keys>
-            <Keys input={'3'} groupName="key-container " onClick={handleKeyPress}></Keys>
+            <Keys input={'7'} groupName="key-container" onClick={handleKeyPress}></Keys>
+            <Keys input={'8'} groupName="key-container " onClick={handleKeyPress}></Keys>
+            <Keys input={'9'} groupName="key-container " onClick={handleKeyPress}></Keys>
             <Keys input={'-'} groupName="key-container operator" onClick={handleKeyPress}></Keys>
             <Keys input={'4'} groupName="key-container " onClick={handleKeyPress}></Keys>
             <Keys input={'5'} groupName="key-container " onClick={handleKeyPress}></Keys>
