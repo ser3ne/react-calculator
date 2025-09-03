@@ -19,7 +19,6 @@ function App() {
         return "";
       }
 
-
       if (input === '=' && !opRegex.test(lastChar)) {
         try {
 
@@ -32,7 +31,6 @@ function App() {
         }
       }
 
-      // if char is 'C' we just return empty ""
       if (input === 'C') {
         return "";
       }
