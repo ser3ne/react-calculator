@@ -14,7 +14,7 @@ function App() {
       const opRegex = /[+\-*/]/;
 
       if (display[0] == 0) {
-        return display = "";
+        return display = input;
       }
 
       if (opRegex.test(input) && display.length < 1) {

@@ -15,7 +15,8 @@
   padding: 5%;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-
+  border: 10px solid rgb(39, 39, 39);
+  border-bottom: none;
 
   scrollbar-color: white;
   scrollbar-width: 100px;

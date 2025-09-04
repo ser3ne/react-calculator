@@ -32,11 +32,22 @@
 
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+
+  border: 10px solid rgb(39, 39, 39);
+  border-top: none;
   background-color: rgb(49, 49, 49);
 }
 
 .operator {
   background-color: hsl(40, 100%, 50%);
+  transition: background-color 0.2s ease;
+  transition: transform 0.17s ease;
+}
+
+.operator:hover {
+  background-color: hsl(40, 100%, 60%);
+  transform: scale(1.04);
+  box-shadow: hsl(40, 100%, 60%);
 }
 
 .input-dsiplay {
