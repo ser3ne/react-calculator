@@ -9,25 +9,29 @@ function App() {
   let [displayValue, setValue] = useState('');
 
   const handleKeyPress = (input) => {
-
     setValue(display => {
       let lastChar = display.toString().slice(-1)
       const opRegex = /[+\-*/]/;
 
+      if (display[0] == 0) {
+        return display = "";
+      }
 
       if (opRegex.test(input) && display.length < 1) {
         return "";
       }
 
-      if (input === '=' && !opRegex.test(lastChar)) {
+      if (input === '=') {
         try {
 
           return eval(display) ?? "";
 
         } catch (err) {
-          //rot 13
-          console.error("Incorrect Syntax [Error Code: EUIgLzSmplRu]")
-          return;
+
+          display = display.slice(0, -1);
+
+          return eval(display);
+
         }
       }
 
@@ -41,8 +45,8 @@ function App() {
 
         return display = display.slice(0, -1) + input;
       }
-
       return display + input;
+
     })
   }
 
