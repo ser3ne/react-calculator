@@ -13,4 +13,4 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## Owner Notes
 
-Incomplete
+the only thing missing is if the firt character is zero, we should be able to still input an operator.
